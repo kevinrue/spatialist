@@ -1,33 +1,33 @@
 ---
 title: >
-  Getting Started
+  Spatialise yourself!
 author:
 - name: Kevin Rue-Albrecht
   affiliation: 
   - &id1 MRC WIMM Centre for Computational Biology, University of Oxford, Oxford, OX3 9DS, UK
   email: kevinrue67@gmail.com
 date: "`r BiocStyle::doc_date()`"
-package: "`r BiocStyle::pkg_ver('spotify')`"
+package: "`r BiocStyle::pkg_ver('spatialist')`"
 output: 
   BiocStyle::html_document:
     toc: true
     toc_float: true
 vignette: >
-  %\VignetteIndexEntry{Getting Started}
+  %\VignetteIndexEntry{Spatialise Yourself!}
   %\VignetteEncoding{UTF-8}  
-  %\VignettePackage{spotify}
+  %\VignettePackage{spatialist}
   %\VignetteKeywords{Visualization}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
-bibliography: spotify.bib
+bibliography: spatialist.bib
 ---
 
 **Compiled date**: `r Sys.Date()`
 
 **Last edited**: 2020-04-20
 
-**License**: `r packageDescription("spotify")[["License"]]`
+**License**: `r packageDescription("spatialist")[["License"]]`
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -44,12 +44,12 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Introduction 
 
-`r BiocStyle::Githubpkg("kevinrue/spotify")` is an *R* package.
+`r BiocStyle::Githubpkg("kevinrue/spatialist")` is an *R* package.
 
 Once installed, the package can be loaded and attached to your current workspace as follows:
 
 ```{r library, message=FALSE}
-library(spotify)
+library(spatialist)
 ```
 
 Other helpful libraries.
@@ -63,7 +63,7 @@ library(ggplot2)
 ## Input file
 
 ```{r}
-input_file <- system.file(package = "spotify", "spotify.jpg")
+input_file <- system.file(package = "spatialist", "Kevin.jpg")
 ```
 
 ## Output types
@@ -71,74 +71,70 @@ input_file <- system.file(package = "spotify", "spotify.jpg")
 ### Raw image
 
 ```{r raw, fig.alt = "Raw image."}
-spotified <- spotify(
+kevin <- spatialise(
   path = input_file
 )
-print(spotified)
+print(kevin)
 ```
 
 ### Flattened image
 
 ```{r flatten, fig.alt = "Flattened image."}
-spotified <- spotify(
+kevin <- spatialise(
   path = input_file,
   return.type = "flatten",
   extras = list(
     image_flatten = list(operator = "Modulate")
   )
 )
-print(spotified)
+print(kevin)
 ```
 
 ### Image data
 
 ```{r data}
-spotified <- spotify(
+kevin <- spatialise(
   path = input_file,
   return.type = "data"
 )
-spotified
+kevin
 ```
 
 ### Processed matrix
 
 ```{r matrix}
-spotified <- spotify(
+kevin <- spatialise(
   path = input_file,
-  return.type = "matrix",
-  invert = TRUE
+  return.type = "matrix"
 )
-dim(spotified)
+dim(kevin)
 ```
 
 ### Heat map
 
 ```{r heatmap, fig.alt = "Heat map.", fig.height=6, fig.width=7}
-spotify(
+spatialise(
   path = input_file,
-  return.type = "heatmap",
-  invert = TRUE
+  return.type = "heatmap"
 )
 ```
 
 ### Pixel coordinates
 
 ```{r xy}
-spotified <- spotify(
+kevin <- spatialise(
   path = input_file,
-  return.type = "xy",
-  invert = TRUE
+  return.type = "xy"
 )
-head(spotified)
+head(kevin)
 ```
 
 ### Scatter plot
 
 ```{r point, fig.alt = "Scatter plot."}
-spotify(
+spatialise(
   path = input_file,
   return.type = "point",
-  invert = TRUE,
   downsample = 100
 ) + theme_void()
 ```
@@ -146,10 +142,9 @@ spotify(
 ### Jittered scatter plot
 
 ```{r jitter, fig.alt = "Jittered scatter plot."}
-spotify(
+spatialise(
   path = input_file,
   return.type = "jitter",
-  invert = TRUE,
   downsample = 100,
   jitter = 5
 ) + theme_void()
@@ -158,26 +153,23 @@ spotify(
 ### Xenium-like
 
 ```{r spatial, fig.alt = "Xenium-like plot."}
-spotify(
+spatialise(
   path = input_file,
   return.type = "spatial",
-  invert = TRUE,
   downsample = 75,
   jitter = 5,
   extras = list(
     cluster = list(k.nn = 50, k.cluster = 10)
   )
-) + theme_void() + guides(colour = "none") +
-  scale_colour_viridis_d()
+) + theme_void() + guides(colour = "none")
 ```
 
 ### Visium-like
 
 ```{r visium, fig.alt = "Visium-like plot."}
-spotify(
+spatialise(
   path = input_file,
   return.type = "visium",
-  invert = TRUE,
   downsample = 100,
   point.size = 0.25,
   extras = list(
@@ -191,10 +183,10 @@ spotify(
 The GitHub repository contains the development version of the package, where new functionality is added over time.
 The authors appreciate well-considered suggestions for improvements or new features, or even better, pull requests.
 
-If you use `r BiocStyle::Githubpkg("kevinrue/spotify")` for your analysis, please cite it as shown below:
+If you use `r BiocStyle::Githubpkg("kevinrue/spatialist")` for your analysis, please cite it as shown below:
 
 ```{r citation}
-citation("spotify")
+citation("spatialist")
 ```
 
 # Session Info {.unnumbered}

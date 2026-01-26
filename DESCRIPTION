@@ -1,5 +1,5 @@
-Package: spotify
-Title: Spotify Your Images
+Package: spatialist
+Title: Spatialise Your Images
 Version: 0.1.0
 Date: 2024-09-13
 Authors@R: c(
@@ -23,9 +23,9 @@ Suggests:
   rmarkdown,
   pkgdown,
   htmltools
-URL: https://kevinrue.github.io/spotify
-BugReports: https://github.com/kevinrue/spotify/issues
+URL: https://kevinrue.github.io/spatialist
+BugReports: https://github.com/kevinrue/spatialist/issues
 License: MIT + file LICENSE
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
