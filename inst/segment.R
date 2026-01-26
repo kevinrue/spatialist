@@ -1,11 +1,11 @@
-library(spotify)
+library(spatialist)
 library(ggplot2)
 
 # find nearest neighbours in a dataframe of x and y coordinates
 library(dbscan)
 
-ggjitter <- spotify(
-  path = "inst/spo",
+ggjitter <- spatialise(
+  path = "inst/Kevin.jpg",
   return.type = "jitter",
   jitter = 5,
   invert = FALSE,
@@ -16,8 +16,8 @@ ggplot(ggjitter) +
   geom_point(aes(x = x, y = y)) +
   theme_void()
 
-# ggmatrix <- spotify(
-#   path = "inst/spotify.jpg",
+# ggmatrix <- spatialise(
+#   path = "inst/spatialise.jpg",
 #   return.type = "matrix",
 #   jitter = 7,
 #   invert = TRUE,

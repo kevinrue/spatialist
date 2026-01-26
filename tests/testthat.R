@@ -1,4 +1,4 @@
 library(testthat)
-library(spotify)
+library(spatialist)
 
-test_check("spotify")
+test_check("spatialist")
