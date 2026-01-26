@@ -122,11 +122,15 @@ spatialise(
 ### Pixel coordinates
 
 ```{r xy}
+<<<<<<< HEAD:vignettes/spatialist.Rmd
 kevin <- spatialise(
+=======
+spotified <- spotify(
+>>>>>>> main:vignettes/spotify.Rmd
   path = input_file,
   return.type = "xy"
 )
-head(kevin)
+head(spotified)
 ```
 
 ### Scatter plot
