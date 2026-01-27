@@ -19,8 +19,9 @@ Visium and Xenium).
 
 ``` r
 
-install.packages("remotes")
-remotes::install_github("kevinrue/spatialist")
+install.packages(c("remotes", "BiocManager"))
+options(repos = BiocManager::repositories())
+remotes::install_github("kevinrue/spatialist", dependencies = TRUE)
 ```
 
 ## Functionalities
