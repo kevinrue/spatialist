@@ -25,8 +25,9 @@ Xenium-like                |  Visium-like
 _spatialist_ can be easily installed from GitHub using `remotes::install_github()`:
 
 ```r
-install.packages("remotes")
-remotes::install_github("kevinrue/spatialist")
+install.packages(c("remotes", "BiocManager"))
+options(repos = BiocManager::repositories())
+remotes::install_github("kevinrue/spatialist", dependencies = TRUE)
 ```
 
 ## Functionalities
